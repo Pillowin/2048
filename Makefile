@@ -10,10 +10,8 @@ CC			:=	cc
 
 CFLAGS		+=	-I$I
 CFLAGS		+=	-Wall -Wextra -Werror -MMD
-#CFLAGS		+=	-g3 -fsanitize=address
 
 LDFLAGS		+=	-I$I
-#LDFLAGS		+=	-g3 -fsanitize=address
 
 MAKEFLAGS	+= --no-print-directory
 
@@ -25,7 +23,7 @@ $O%.o: $S%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all:
-	@$(MAKE) -j $(NAME)
+	@$(MAKE) $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(LDFLAGS) $(OBJ) -o $@ -lncurses
